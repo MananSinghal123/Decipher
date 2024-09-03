@@ -26,7 +26,7 @@ const BinaryIPAddressPage = () => {
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 5, // Assuming the task number is 5
+            taskNumber: 3, // Assuming the task number is 5
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -52,11 +52,10 @@ const BinaryIPAddressPage = () => {
   const handleNextClick = () => {
     // Navigate to the next page
     navigate("/caesar-cipher"); // Replace '/next-page' with the actual path to your next page
-
   };
 
   // Render content based on the current task state
-  if (lastTaskState >= 4) {
+  if (lastTaskState >= 2) {
     // Assuming the user must complete task 4 to access this page
     return (
       <div className="binary-ip-container">
@@ -73,25 +72,24 @@ const BinaryIPAddressPage = () => {
           </p>
         </section>
 
-      <section className="binary-ip-puzzle">
-        <p className="binary-hint">
-          **Binary IP Address Hint:** 1111111.0000000.0000000.0000001
-        </p>
-        <div className="input-section">
-          <label htmlFor="ipInput">Enter the Decoded IP Address:</label>
-          <input
-            type="text"
-            id="ipInput"
-            name="ipInput"
-            placeholder="Enter the IP address in standard form"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-          />
-          <button type="button" onClick={checkIPAddress}>
-            Submit
-          </button>
-        </div>
-
+        <section className="binary-ip-puzzle">
+          <p className="binary-hint">
+            **Binary IP Address Hint:** 1111111.0000000.0000000.0000001
+          </p>
+          <div className="input-section">
+            <label htmlFor="ipInput">Enter the Decoded IP Address:</label>
+            <input
+              type="text"
+              id="ipInput"
+              name="ipInput"
+              placeholder="Enter the IP address in standard form"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+            />
+            <button type="button" onClick={checkIPAddress}>
+              Submit
+            </button>
+          </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
 

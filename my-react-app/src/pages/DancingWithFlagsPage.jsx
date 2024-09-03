@@ -26,7 +26,7 @@ const DancingWithFlagsPage = () => {
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 6, // Assuming the task number is 6
+            taskNumber: 8, // Assuming the task number is 6
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -51,57 +51,47 @@ const DancingWithFlagsPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/brain-fuck"); // Replace '/next-page' with the actual path to your next page
-  };
-
-  
-    navigate("/caesar-cipher"); // Replace '/caesar-cipher' with the actual path to your next page
+    navigate("/morse-code-video"); // Replace '/brain-fuck' with the actual path to your next page
   };
 
   // Render content based on the current task state
-  if (lastTaskState >= 5) {
+  if (lastTaskState >= 7) {
     // Assuming the user must complete task 5 to access this page
-   return (
-    <div className="flags-container">
-      <header className="flags-header">
-        <h1>Dancing with Flags: Decode the Signal</h1>
-        <h2>Watch carefully and uncover the hidden message!</h2>
-      </header>
+    return (
+      <div className="flags-container">
+        <header className="flags-header">
+          <h1>Dancing with Flags: Decode the Signal</h1>
+          <h2>Watch carefully and uncover the hidden message!</h2>
+        </header>
 
-      <section className="flags-intro">
-        <p>
-          Satoshi's code was distributed across different media, including old
-          forms of communication. Here, it’s embedded in a seemingly innocuous
-          dance. Decode the flag signals to uncover the next piece of the code.
-        </p>
-      </section>
+        <section className="flags-intro">
+          <p>
+            Satoshi's code was distributed across different media, including old
+            forms of communication. Here, it’s embedded in a seemingly innocuous
+            dance. Decode the flag signals to uncover the next piece of the
+            code.
+          </p>
+        </section>
 
-      <section className="flags-video">
-        {/* Placeholder for the video. Replace src with actual video URL */}
-        <img src="../../genesis.jpeg" />
-      </section>
+        <section className="flags-video">
+          {/* Placeholder for the video. Replace src with actual video URL */}
+          <img src="../../genesis.jpeg" alt="Video Placeholder" />
+        </section>
 
-      <section className="flags-puzzle">
-        <div className="input-section">
-          <label htmlFor="flagInput">Enter the Decoded Message:</label>
-          <input
-            type="text"
-            id="flagInput"
-            name="flagInput"
-            placeholder="Enter the decoded message"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-          />
-          <button type="button" onClick={checkAnswer}>
-            Submit
-          </button>
-        </div>
-
-        {feedback && <p className="feedback-message">{feedback}</p>}
-
-        {showNextButton && (
-          <div className="next-button">
-            <button onClick={handleNextClick}>Next</button>
+        <section className="flags-puzzle">
+          <div className="input-section">
+            <label htmlFor="flagInput">Enter the Decoded Message:</label>
+            <input
+              type="text"
+              id="flagInput"
+              name="flagInput"
+              placeholder="Enter the decoded message"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+            />
+            <button type="button" onClick={checkAnswer}>
+              Submit
+            </button>
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
@@ -122,7 +112,7 @@ const DancingWithFlagsPage = () => {
       </div>
     );
   } else {
-    return <>You have not completed the previous question</>;
+    return <p>You have not completed the previous question</p>;
   }
 };
 

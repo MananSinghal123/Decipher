@@ -26,7 +26,7 @@ const CaesarCipherPage = () => {
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 7, // Assuming the task number is 7
+            taskNumber: 4, // Assuming the task number is 7
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -54,42 +54,41 @@ const CaesarCipherPage = () => {
     navigate("/distorted-image"); // Replace '/distorted-image' with the actual path to your next page
   };
 
-
   // Render content based on the current task state
-  if (lastTaskState >= 6) {
+  if (lastTaskState >= 3) {
     // Assuming the user must complete task 6 to access this page
-     return (
-    <div className="caesar-container">
-      <header className="caesar-header">
-        <h1>Caesar Cipher: Uncover the Hidden Poem</h1>
-        <h2></h2>
-      </header>
+    return (
+      <div className="caesar-container">
+        <header className="caesar-header">
+          <h1>Caesar Cipher: Uncover the Hidden Poem</h1>
+          <h2></h2>
+        </header>
 
-      <section className="caesar-intro">
-        <p>
-          "With sacrifice before the rising morn Vows have I made by fruitless
-          hope inspired; And from the infernal Gods, 'mid shades forlorn Of
-          night, my slaughtered Lord have I required: Celestial pity I again
-          implore;— Restore him to my sight—great Jove, restore!"
-        </p>
-      </section>
+        <section className="caesar-intro">
+          <p>
+            "With sacrifice before the rising morn Vows have I made by fruitless
+            hope inspired; And from the infernal Gods, 'mid shades forlorn Of
+            night, my slaughtered Lord have I required: Celestial pity I again
+            implore;— Restore him to my sight—great Jove, restore!"
+          </p>
+        </section>
 
-      <section className="caesar-puzzle">
-        <p className="cipher-text">What is this? Literary Club? xD</p>
-        <div className="input-section">
-          <label htmlFor="cipherInput">Enter the name:</label>
-          <input
-            type="text"
-            id="cipherInput"
-            name="cipherInput"
-            placeholder="Your answer"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-          />
-          <button type="button" onClick={checkAnswer}>
-            Submit
-          </button>
-        </div>
+        <section className="caesar-puzzle">
+          <p className="cipher-text">What is this? Literary Club? xD</p>
+          <div className="input-section">
+            <label htmlFor="cipherInput">Enter the name:</label>
+            <input
+              type="text"
+              id="cipherInput"
+              name="cipherInput"
+              placeholder="Your answer"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+            />
+            <button type="button" onClick={checkAnswer}>
+              Submit
+            </button>
+          </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
 

@@ -18,7 +18,6 @@ import LeaderboardPage from "./pages/LeaderboardPage";
 import RegisterTeamPage from "./pages/RegisterTeamPage";
 import DisableBackNavigation from "./DisableBackNavigation";
 
-
 function App() {
   return (
     <>
@@ -28,8 +27,7 @@ function App() {
         <Routes>
           <Route path="/decipher-page" element={<DecipherPage />} />
           <Route path="/location-hunt" element={<LocationHuntPage />} />
-          <Route path="/morse-code-video" element={<MorseCodeVideoPage />} />
-          <Route path="/llm-chatbot" element={<LLMChatbotPage />} />
+          {/* <Route path="/llm-chatbot" element={<LLMChatbotPage />} /> */}
           <Route path="/binary-ip-address" element={<BinaryIPAddressPage />} />
           <Route path="/caesar-cipher" element={<CaesarCipherPage />} />
           <Route path="/distorted-image" element={<DistortedImagePage />} />
@@ -41,7 +39,8 @@ function App() {
           <Route
             path="/dancing-with-flags"
             element={<DancingWithFlagsPage />}
-          />
+          />{" "}
+          <Route path="/morse-code-video" element={<MorseCodeVideoPage />} />
           <Route path="/brain-fuck" element={<Brainfuck />} />
           <Route path="/final-answer" element={<FinalAnswerPage />} />
           <Route path="/rules" element={<RulesPage />} />

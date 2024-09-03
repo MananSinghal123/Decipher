@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
@@ -28,7 +26,7 @@ const DistortedImagePage = () => {
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 8, // Assuming the task number is 8
+            taskNumber: 5, // Assuming the task number is 8
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -56,12 +54,11 @@ const DistortedImagePage = () => {
 
     navigate("/google-lens"); // Replace '/next-page' with the actual path to your next page
 
-   // Replace '/google-street-view' with the actual path to your next page
-
+    // Replace '/google-street-view' with the actual path to your next page
   };
 
   // Render content based on the current task state
-  if (lastTaskState >= 7) {
+  if (lastTaskState >= 4) {
     // Assuming the user must complete task 7 to access this page
     return (
       <div className="distorted-container">
@@ -70,19 +67,15 @@ const DistortedImagePage = () => {
           <h2>Analyze the image carefully to uncover the secret!</h2>
         </header>
 
-
-      <section className="distorted-image">
-        {/* Placeholder for the distorted image. Replace src with actual image URL */}
-        <img
-          src="../../innovate.jpeg"
-          alt="Distorted Clue"
-          className="distorted-puzzle-image"
-          style={{ transform: "scaleX(-1)" }}
-        />
-      </section>
-
-      
-
+        <section className="distorted-image">
+          {/* Placeholder for the distorted image. Replace src with actual image URL */}
+          <img
+            src="../../innovate.jpeg"
+            alt="Distorted Clue"
+            className="distorted-puzzle-image"
+            style={{ transform: "scaleX(-1)" }}
+          />
+        </section>
 
         <section className="distorted-image">
           {/* Placeholder for the distorted image. Replace src with actual image URL */}

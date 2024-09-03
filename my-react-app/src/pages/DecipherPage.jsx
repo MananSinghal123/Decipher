@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
@@ -28,10 +27,7 @@ export const DecipherPage = () => {
   const checkCode = async () => {
     if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
       setFeedback("Correct! You've unlocked the next clue.");
-
-      navigate("/binary-ip-address");
       // You can add code here to navigate to the next page or reveal more content
-
 
       try {
         setIsLoading(true); // Start loading
@@ -71,7 +67,6 @@ export const DecipherPage = () => {
       } finally {
         setIsLoading(false); // End loading
       }
-
     } else {
       setFeedback("Incorrect. Try again!");
     }
