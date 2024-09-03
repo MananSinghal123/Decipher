@@ -12,13 +12,18 @@ import GoogleStreetViewPage from "./pages/GoogleStreetViewPage";
 import GoogleLensPage from "./pages/GoogleLensPage";
 import FinalAnswerPage from "./pages/FinalAnswerPage";
 import RulesPage from "./pages/RulesPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
+import RegisterTeamPage from "./pages/RegisterTeamPage";
+import DisableBackNavigation from "./DisableBackNavigation";
 
 function App() {
   return (
     <>
+      {/* <DisableBackNavigation /> */}
       <BrowserRouter>
+        <DisableBackNavigation />
         <Routes>
-          <Route path="/" element={<DecipherPage />} />
+          <Route path="/decipher-page" element={<DecipherPage />} />
           <Route path="/location-hunt" element={<LocationHuntPage />} />
           <Route path="/morse-code-video" element={<MorseCodeVideoPage />} />
           <Route path="/llm-chatbot" element={<LLMChatbotPage />} />
@@ -37,6 +42,8 @@ function App() {
           <Route path="/google-lens" element={<GoogleLensPage />} />
           <Route path="/final-answer" element={<FinalAnswerPage />} />
           <Route path="/rules" element={<RulesPage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/" element={<RegisterTeamPage />} />
         </Routes>
       </BrowserRouter>
     </>
