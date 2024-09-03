@@ -23,7 +23,7 @@ const DisableBackNavigation = () => {
         localStorage.clear();
 
         // Redirect to an external URL or close the tab
-        window.location.href = "https://example.com"; // Change this URL as needed
+        window.location.href = "https://www.youtube.com/shorts/3SxqXBuVZGw"; // Change this URL as needed
       } else {
         // Navigate forward to block back navigation
         navigate(1);

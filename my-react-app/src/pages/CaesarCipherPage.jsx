@@ -6,7 +6,7 @@ import axios from "axios"; // Import axios
 const CaesarCipherPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
+  // const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
@@ -19,7 +19,7 @@ const CaesarCipherPage = () => {
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
       setFeedback("Correct! You've decoded the Caesar cipher.");
-      setShowNextButton(true); // Show the "Next" button when the answer is correct
+      // setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
         // Make the API request to submit the task
@@ -37,6 +37,7 @@ const CaesarCipherPage = () => {
         // Update the state and local storage with the new last task
         setLastTaskState(lastTask);
         localStorage.setItem("lastTask", lastTask);
+        navigate("/distorted-image"); // Replace '/distorted-image' with the actual path to your next page
       } catch (error) {
         setFeedback(
           "There was an error processing your request. Please try again later."
@@ -45,13 +46,8 @@ const CaesarCipherPage = () => {
       }
     } else {
       setFeedback("Incorrect. Please try again.");
-      setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
+      // setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
     }
-  };
-
-  const handleNextClick = () => {
-    // Navigate to the next page
-    navigate("/distorted-image"); // Replace '/distorted-image' with the actual path to your next page
   };
 
   // Render content based on the current task state
@@ -92,11 +88,11 @@ const CaesarCipherPage = () => {
 
           {feedback && <p className="feedback-message">{feedback}</p>}
 
-          {showNextButton && (
+          {/* {showNextButton && (
             <div className="next-button">
               <button onClick={handleNextClick}>Next</button>
             </div>
-          )}
+          )} */}
         </section>
 
         <footer className="caesar-footer">

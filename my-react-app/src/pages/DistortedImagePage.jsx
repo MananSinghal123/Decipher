@@ -7,7 +7,7 @@ import "./DistortedImagePage.css"; // Ensure you create this CSS file
 const DistortedImagePage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
+  // const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
@@ -19,7 +19,7 @@ const DistortedImagePage = () => {
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
       setFeedback("Correct! You've deciphered the image.");
-      setShowNextButton(true); // Show the "Next" button when the answer is correct
+      // setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
         // Make the API request to submit the task
@@ -37,6 +37,7 @@ const DistortedImagePage = () => {
         // Update the state and local storage with the new last task
         setLastTaskState(lastTask);
         localStorage.setItem("lastTask", lastTask);
+        navigate("/google-lens"); // Replace '/next-page' with the actual path to your next page
       } catch (error) {
         setFeedback(
           "There was an error processing your request. Please try again later."
@@ -45,16 +46,8 @@ const DistortedImagePage = () => {
       }
     } else {
       setFeedback("Incorrect. Please try again.");
-      setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
+      // setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
     }
-  };
-
-  const handleNextClick = () => {
-    // Navigate to the next page
-
-    navigate("/google-lens"); // Replace '/next-page' with the actual path to your next page
-
-    // Replace '/google-street-view' with the actual path to your next page
   };
 
   // Render content based on the current task state
@@ -103,12 +96,6 @@ const DistortedImagePage = () => {
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
-
-          {showNextButton && (
-            <div className="next-button">
-              <button onClick={handleNextClick}>Next</button>
-            </div>
-          )}
         </section>
 
         <footer className="distorted-footer">

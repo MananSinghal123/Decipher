@@ -17,6 +17,7 @@ import Brainfuck from "./pages/Brainfuck";
 import LeaderboardPage from "./pages/LeaderboardPage";
 import RegisterTeamPage from "./pages/RegisterTeamPage";
 import DisableBackNavigation from "./DisableBackNavigation";
+import OptionalQuestion from "./pages/OptionalQuestion";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           />{" "}
           <Route path="/morse-code-video" element={<MorseCodeVideoPage />} />
           <Route path="/brain-fuck" element={<Brainfuck />} />
+          <Route path="/optional-question" element={<OptionalQuestion />} />
           <Route path="/final-answer" element={<FinalAnswerPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/leaderboard" element={<LeaderboardPage />} />

@@ -6,7 +6,6 @@ import axios from "axios"; // Import axios
 const BinaryIPAddressPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
@@ -19,7 +18,6 @@ const BinaryIPAddressPage = () => {
   const checkIPAddress = async () => {
     if (userInput === correctIPAddress) {
       setFeedback("Correct! You've decoded the IP address.");
-      setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
         // Make the API request to submit the task
@@ -37,6 +35,7 @@ const BinaryIPAddressPage = () => {
         // Update the state and local storage with the new last task
         setLastTaskState(lastTask);
         localStorage.setItem("lastTask", lastTask);
+        navigate("/caesar-cipher"); // Replace '/next-page' with the actual path to your next page
       } catch (error) {
         setFeedback(
           "There was an error processing your request. Please try again later."
@@ -45,13 +44,7 @@ const BinaryIPAddressPage = () => {
       }
     } else {
       setFeedback("Incorrect. Please try again.");
-      setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
     }
-  };
-
-  const handleNextClick = () => {
-    // Navigate to the next page
-    navigate("/caesar-cipher"); // Replace '/next-page' with the actual path to your next page
   };
 
   // Render content based on the current task state
@@ -92,12 +85,12 @@ const BinaryIPAddressPage = () => {
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
-
+          {/* 
           {showNextButton && (
             <div className="next-button">
               <button onClick={handleNextClick}>Next</button>
             </div>
-          )}
+          )} */}
         </section>
 
         <footer className="binary-ip-footer">

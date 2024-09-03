@@ -6,7 +6,7 @@ import "./CaesarCipherPage.css"; // Ensure you create this CSS file
 const Brainfuck = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
+  // const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
@@ -15,17 +15,43 @@ const Brainfuck = () => {
   // Correct answer after decoding the Brainfuck cipher
   const correctAnswer = "pointer"; // Replace with the actual decoded location name
 
+  const skipQuestion = async () => {
+    try {
+      // Make the API request to submit the task
+      const response = await axios.post(
+        "http://localhost:5000/api/teams/task",
+        {
+          taskNumber: 10, // Assuming the task number is 10
+          team: localStorage.getItem("teamName"), // Get the team name from local storage
+        }
+      );
+
+      // Extract currentTask and lastTask from the response data
+      const { currentTask, lastTask } = response.data;
+
+      // Update the state and local storage with the new last task
+      setLastTaskState(lastTask);
+      localStorage.setItem("lastTask", lastTask);
+      navigate("/optional-question");
+    } catch (error) {
+      setFeedback(
+        "There was an error changing the task. Please try again later."
+      );
+      console.error("Error skipping task:", error);
+    }
+  };
+
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
       setFeedback("Correct! You've decoded the Brainfuck cipher.");
-      setShowNextButton(true); // Show the "Next" button when the answer is correct
+      // setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
         // Make the API request to submit the task
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 10, // Assuming the task number is 10
+            taskNumber: 11, // Assuming the task number is 10
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -36,6 +62,7 @@ const Brainfuck = () => {
         // Update the state and local storage with the new last task
         setLastTaskState(lastTask);
         localStorage.setItem("lastTask", lastTask);
+        navigate("/final-answer"); // Replace '/final-answer' with the actual path to your next page
       } catch (error) {
         setFeedback(
           "There was an error submitting the task. Please try again later."
@@ -44,13 +71,8 @@ const Brainfuck = () => {
       }
     } else {
       setFeedback("Incorrect. Please try again.");
-      setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
+      // setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
     }
-  };
-
-  const handleNextClick = () => {
-    // Navigate to the next page
-    navigate("/final-answer"); // Replace '/final-answer' with the actual path to your next page
   };
 
   const brainfuckCode = `
@@ -88,15 +110,12 @@ const Brainfuck = () => {
             <button type="button" onClick={checkAnswer}>
               Submit
             </button>
+            <button type="button" onClick={skipQuestion}>
+              Alternate
+            </button>
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
-
-          {showNextButton && (
-            <div className="next-button">
-              <button onClick={handleNextClick}>Next</button>
-            </div>
-          )}
         </section>
 
         <footer className="caesar-footer">

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
 import "./FinalAnswerPage.css"; // Ensure you create this CSS file
@@ -11,13 +10,12 @@ const FinalAnswerPage = () => {
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
 
-
   // Correct answer for final answer page
   const correctAnswer = "BitcoinFinalKey"; // Replace with the actual hidden message
 
   useEffect(() => {
     // Check if the user has completed all tasks (up to the required last task)
-    if (lastTaskState < 10) {
+    if (lastTaskState < 11) {
       setFeedback(
         "You have not completed all required tasks to access the final answer page."
       );
@@ -60,7 +58,7 @@ const FinalAnswerPage = () => {
   };
 
   // Conditional rendering based on lastTaskState
-  if (lastTaskState < 10) {
+  if (lastTaskState < 11) {
     // If the user has not completed the required tasks, show a message
     return (
       <div className="finalanswer-container">
@@ -93,8 +91,6 @@ const FinalAnswerPage = () => {
           https://drive.google.com/file/d/12eAz0ru4rSH-sQ4TB825goD6QZR_8_vf/view?usp=drive_link
         </p>
       </section>
-
-
 
       <section className="finalanswer-input">
         <div className="input-section">

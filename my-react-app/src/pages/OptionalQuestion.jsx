@@ -1,32 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./DancingWithFlagsPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
+import "./CaesarCipherPage.css"; // Ensure you create this CSS file
 
-const DancingWithFlagsPage = () => {
+const OptionalQuestion = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
-  // const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
+  //   const [showNextButton, setShowNextButton] = useState(false); // State to manage button visibility
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
-
   const navigate = useNavigate(); // Hook to handle navigation
 
-  // Correct answer after decoding the flag signals
-  const correctAnswer = "genesis"; // Replace with your actual correct answer
+  // Correct answer after decoding the Brainfuck cipher
+  const correctAnswer = "pointer-2"; // Replace with the actual decoded location name
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback("Correct! You've decoded the flag signals.");
-      // setShowNextButton(true); // Show the "Next" button when the answer is correct
+      setFeedback("Correct! You've decoded the Brainfuck cipher.");
+      //   setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
         // Make the API request to submit the task
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 8, // Assuming the task number is 6
+            taskNumber: 11, // Assuming the task number is 10
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -37,51 +36,48 @@ const DancingWithFlagsPage = () => {
         // Update the state and local storage with the new last task
         setLastTaskState(lastTask);
         localStorage.setItem("lastTask", lastTask);
-        navigate("/morse-code-video"); // Replace '/brain-fuck' with the actual path to your next page
+        navigate("/final-answer"); // Replace '/final-answer' with the actual path to your next page
       } catch (error) {
         setFeedback(
-          "There was an error processing your request. Please try again later."
+          "There was an error submitting the task. Please try again later."
         );
         console.error("Error submitting task:", error);
       }
     } else {
       setFeedback("Incorrect. Please try again.");
-      // setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
+      //   setShowNextButton(false); // Hide the "Next" button if the answer is incorrect
     }
   };
 
+  const brainfuckCode = `
+casccs`; // pointer
+
   // Render content based on the current task state
-  if (lastTaskState >= 7) {
-    // Assuming the user must complete task 5 to access this page
+  if (lastTaskState >= 9) {
     return (
-      <div className="flags-container">
-        <header className="flags-header">
-          <h1>Dancing with Flags: Decode the Signal</h1>
-          <h2>Watch carefully and uncover the hidden message!</h2>
+      <div className="caesar-container">
+        <header className="caesar-header">
+          <h1>Brain Fuck: Uncover the Hidden Message</h1>
+          <h2>Decode the cipher to move to next level</h2>
         </header>
 
-        <section className="flags-intro">
+        <section className="caesar-intro">
           <p>
-            Satoshi's code was distributed across different media, including old
-            forms of communication. Here, it’s embedded in a seemingly innocuous
-            dance. Decode the flag signals to uncover the next piece of the
-            code.
+            As you delve deeper into the world of cryptography, you encounter a
+            non-classic, not very family-friendly form of encryption. Decode the
+            cipher to reveal the location of the next clue.
           </p>
         </section>
 
-        <section className="flags-video">
-          {/* Placeholder for the video. Replace src with actual video URL */}
-          <img src="../../genesis.jpeg" alt="Video Placeholder" />
-        </section>
-
-        <section className="flags-puzzle">
+        <section className="caesar-puzzle">
+          <p className="cipher-text">{brainfuckCode}</p>
           <div className="input-section">
-            <label htmlFor="flagInput">Enter the Decoded Message:</label>
+            <label htmlFor="cipherInput">Enter the Decoded Message:</label>
             <input
               type="text"
-              id="flagInput"
-              name="flagInput"
-              placeholder="Enter the decoded message"
+              id="cipherInput"
+              name="cipherInput"
+              placeholder="Enter the decoded location"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
             />
@@ -93,7 +89,7 @@ const DancingWithFlagsPage = () => {
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="flags-footer">
+        <footer className="caesar-footer">
           <p>
             &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
             <a href="/rules">Rules</a>
@@ -106,4 +102,4 @@ const DancingWithFlagsPage = () => {
   }
 };
 
-export default DancingWithFlagsPage;
+export default OptionalQuestion;
