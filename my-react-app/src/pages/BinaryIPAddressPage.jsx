@@ -14,13 +14,11 @@ const BinaryIPAddressPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // The correct answer after decoding the binary IP address
-  const correctIPAddress = "192.168.1.1"; // Replace with your own binary encoded IP address equivalent
+  const correctIPAddress = "127.0.0.1"; // Replace with your own binary encoded IP address equivalent
 
   const checkIPAddress = async () => {
     if (userInput === correctIPAddress) {
-      setFeedback(
-        "Correct! You've decoded the IP address. The next clue is: 'NetworkNinja42'."
-      );
+      setFeedback("Correct! You've decoded the IP address.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
@@ -53,7 +51,8 @@ const BinaryIPAddressPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/dancing-with-flags"); // Replace '/dancing-with-flags' with the actual path to your next page
+    navigate("/caesar-cipher"); // Replace '/next-page' with the actual path to your next page
+
   };
 
   // Render content based on the current task state
@@ -74,24 +73,25 @@ const BinaryIPAddressPage = () => {
           </p>
         </section>
 
-        <section className="binary-ip-puzzle">
-          <p className="binary-hint">
-            **Binary IP Address Hint:** 11000000.10101000.00000001.00000001
-          </p>
-          <div className="input-section">
-            <label htmlFor="ipInput">Enter the Decoded IP Address:</label>
-            <input
-              type="text"
-              id="ipInput"
-              name="ipInput"
-              placeholder="Enter the IP address in standard form"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
-            <button type="button" onClick={checkIPAddress}>
-              Submit
-            </button>
-          </div>
+      <section className="binary-ip-puzzle">
+        <p className="binary-hint">
+          **Binary IP Address Hint:** 1111111.0000000.0000000.0000001
+        </p>
+        <div className="input-section">
+          <label htmlFor="ipInput">Enter the Decoded IP Address:</label>
+          <input
+            type="text"
+            id="ipInput"
+            name="ipInput"
+            placeholder="Enter the IP address in standard form"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+          />
+          <button type="button" onClick={checkIPAddress}>
+            Submit
+          </button>
+        </div>
+
 
           {feedback && <p className="feedback-message">{feedback}</p>}
 

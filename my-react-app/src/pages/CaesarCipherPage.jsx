@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CaesarCipherPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
@@ -14,13 +14,11 @@ const CaesarCipherPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after decoding the Caesar cipher
-  const correctAnswer = "Library"; // Replace with the actual decoded location name
+  const correctAnswer = "Laodamia"; // Replace with the actual decoded location name
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've decoded the Caesar cipher. The next clue is located at the Library."
-      );
+      setFeedback("Correct! You've decoded the Caesar cipher.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
@@ -56,45 +54,42 @@ const CaesarCipherPage = () => {
     navigate("/distorted-image"); // Replace '/distorted-image' with the actual path to your next page
   };
 
+
   // Render content based on the current task state
   if (lastTaskState >= 6) {
     // Assuming the user must complete task 6 to access this page
-    return (
-      <div className="caesar-container">
-        <header className="caesar-header">
-          <h1>Caesar Cipher: Uncover the Hidden Location</h1>
-          <h2>Decode the cipher to find the next clue's location!</h2>
-        </header>
+     return (
+    <div className="caesar-container">
+      <header className="caesar-header">
+        <h1>Caesar Cipher: Uncover the Hidden Poem</h1>
+        <h2></h2>
+      </header>
 
-        <section className="caesar-intro">
-          <p>
-            As you delve deeper into the world of cryptography, you encounter a
-            classic form of encryption, a Caesar cipher. Decode the cipher to
-            reveal the location of the next clue.
-          </p>
-        </section>
+      <section className="caesar-intro">
+        <p>
+          "With sacrifice before the rising morn Vows have I made by fruitless
+          hope inspired; And from the infernal Gods, 'mid shades forlorn Of
+          night, my slaughtered Lord have I required: Celestial pity I again
+          implore;— Restore him to my sight—great Jove, restore!"
+        </p>
+      </section>
 
-        <section className="caesar-puzzle">
-          <p className="cipher-text">
-            **Caesar Cipher Text:** Uhyxohb. // Replace this text with your own
-            cipher text
-          </p>
-          <div className="input-section">
-            <label htmlFor="cipherInput">
-              Enter the Decoded Location Name:
-            </label>
-            <input
-              type="text"
-              id="cipherInput"
-              name="cipherInput"
-              placeholder="Enter the decoded location"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
-            <button type="button" onClick={checkAnswer}>
-              Submit
-            </button>
-          </div>
+      <section className="caesar-puzzle">
+        <p className="cipher-text">What is this? Literary Club? xD</p>
+        <div className="input-section">
+          <label htmlFor="cipherInput">Enter the name:</label>
+          <input
+            type="text"
+            id="cipherInput"
+            name="cipherInput"
+            placeholder="Your answer"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+          />
+          <button type="button" onClick={checkAnswer}>
+            Submit
+          </button>
+        </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
 

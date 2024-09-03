@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
@@ -13,13 +14,11 @@ const GoogleLensPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer found by analyzing the image with Google Lens
-  const correctAnswer = "SatoshiFinalKey"; // Replace with the actual hidden message
+  const correctAnswer = "Moraine"; // Replace with the actual hidden message
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've found the final key. Congratulations, you've completed the Decipher event!"
-      );
+      setFeedback("Correct! ");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
@@ -52,36 +51,52 @@ const GoogleLensPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the final page or a completion page
-    navigate("/final-answer"); // Replace '/final-answer' with the actual path to your final page
+    navigate("/google-street-view"); // Replace '/completion-page' with the actual path to your final page
   };
+
+ 
+
 
   // Render content based on the current task state
   if (lastTaskState >= 9) {
     // Assuming the user must complete task 9 to access this page
     return (
-      <div className="googlelens-container">
-        <header className="googlelens-header">
-          <h1>Google Lens: Uncover the Final Clue</h1>
-          <h2>
-            Use Google Lens to analyze the image and find the hidden message!
-          </h2>
-        </header>
+    <div className="googlelens-container">
+      <header className="googlelens-header">
+        <h1>Google Lens: Uncover the Clue</h1>
+        <h2>
+          Use Google Lens to analyze the image and find the hidden message!
+        </h2>
+      </header>
 
-        <section className="googlelens-intro">
-          <p>
-            The final piece of the puzzle lies hidden in an image. Use Google
-            Lens to uncover the hidden message. This step symbolizes the need
-            for modern tools and techniques to fully understand Satoshi’s
-            legacy.
-          </p>
-        </section>
+      <section className="googlelens-intro">
+        <p>
+          The final piece of the puzzle lies hidden in an image. Use Google Lens
+          to uncover the hidden message. This step symbolizes the need for
+          modern tools and techniques to fully understand Satoshi’s legacy.
+        </p>
+      </section>
 
-        <section className="googlelens-image">
-          {/* Placeholder for the image to be analyzed with Google Lens. Replace src with actual image URL */}
-          <img
-            src="path/to/your/image.jpg"
-            alt="Hidden Clue"
-            className="googlelens-puzzle-image"
+      <section className="googlelens-image">
+        {/* Placeholder for the image to be analyzed with Google Lens. Replace src with actual image URL */}
+        <img
+          src="../../moraine.jpeg"
+          alt="Hidden Clue"
+          className="googlelens-puzzle-image"
+        />
+      </section>
+
+      <section className="googlelens-puzzle">
+        <div className="input-section">
+          <label htmlFor="lensInput">Enter the name:</label>
+          <input
+            type="text"
+            id="lensInput"
+            name="lensInput"
+            placeholder="Enter the hidden message"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+
           />
         </section>
 

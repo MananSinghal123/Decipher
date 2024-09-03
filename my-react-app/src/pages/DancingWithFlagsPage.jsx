@@ -14,13 +14,11 @@ const DancingWithFlagsPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after decoding the flag signals
-  const correctAnswer = "SignalFlag123"; // Replace with your actual correct answer
+  const correctAnswer = "genesis"; // Replace with your actual correct answer
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've decoded the flag signals. The next clue is: 'SteganographyMaster45'."
-      );
+      setFeedback("Correct! You've decoded the flag signals.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
@@ -53,53 +51,57 @@ const DancingWithFlagsPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
+    navigate("/brain-fuck"); // Replace '/next-page' with the actual path to your next page
+  };
+
+  
     navigate("/caesar-cipher"); // Replace '/caesar-cipher' with the actual path to your next page
   };
 
   // Render content based on the current task state
   if (lastTaskState >= 5) {
     // Assuming the user must complete task 5 to access this page
-    return (
-      <div className="flags-container">
-        <header className="flags-header">
-          <h1>Dancing with Flags: Decode the Signal</h1>
-          <h2>Watch carefully and uncover the hidden message!</h2>
-        </header>
+   return (
+    <div className="flags-container">
+      <header className="flags-header">
+        <h1>Dancing with Flags: Decode the Signal</h1>
+        <h2>Watch carefully and uncover the hidden message!</h2>
+      </header>
 
-        <section className="flags-intro">
-          <p>
-            Satoshi's code was distributed across different media, including old
-            forms of communication. Here, it’s embedded in a seemingly innocuous
-            dance. Decode the flag signals to uncover the next piece of the
-            code.
-          </p>
-        </section>
+      <section className="flags-intro">
+        <p>
+          Satoshi's code was distributed across different media, including old
+          forms of communication. Here, it’s embedded in a seemingly innocuous
+          dance. Decode the flag signals to uncover the next piece of the code.
+        </p>
+      </section>
 
-        <section className="flags-video">
-          {/* Placeholder for the video. Replace src with actual video URL */}
-          <video controls width="600">
-            <source
-              src="path/to/your/dance-with-flags-video.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </section>
+      <section className="flags-video">
+        {/* Placeholder for the video. Replace src with actual video URL */}
+        <img src="../../genesis.jpeg" />
+      </section>
 
-        <section className="flags-puzzle">
-          <div className="input-section">
-            <label htmlFor="flagInput">Enter the Decoded Message:</label>
-            <input
-              type="text"
-              id="flagInput"
-              name="flagInput"
-              placeholder="Enter the decoded message"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
-            <button type="button" onClick={checkAnswer}>
-              Submit
-            </button>
+      <section className="flags-puzzle">
+        <div className="input-section">
+          <label htmlFor="flagInput">Enter the Decoded Message:</label>
+          <input
+            type="text"
+            id="flagInput"
+            name="flagInput"
+            placeholder="Enter the decoded message"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+          />
+          <button type="button" onClick={checkAnswer}>
+            Submit
+          </button>
+        </div>
+
+        {feedback && <p className="feedback-message">{feedback}</p>}
+
+        {showNextButton && (
+          <div className="next-button">
+            <button onClick={handleNextClick}>Next</button>
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}

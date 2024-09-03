@@ -13,7 +13,7 @@ const GoogleStreetViewPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer found by exploring Google Street View
-  const correctAnswer = "Satoshi2024"; // Replace with the actual hidden message
+  const correctAnswer = "hollywood"; // Replace with the actual hidden message
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
@@ -52,18 +52,23 @@ const GoogleStreetViewPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/google-lens"); // Replace '/google-lens' with the actual path to your next page
+    navigate("/dancing-with-flags"); // Replace '/next-page' with the actual path to your next page
   };
 
+ 
+
+   
   // Render content based on the current task state
   if (lastTaskState >= 8) {
     // Assuming the user must complete task 8 to access this page
     return (
-      <div className="streetview-container">
-        <header className="streetview-header">
-          <h1>Google Street View: Find the Hidden Message</h1>
-          <h2>Follow the coordinates to discover the next clue!</h2>
-        </header>
+    <div className="streetview-container">
+      <header className="streetview-header">
+        <h1>Google Street View: Find the Hidden Message</h1>
+        <h2>Follow the coordinates to discover the next clue!</h2>
+        <h3>Hint: It's on a Hill</h3>
+      </header>
+
 
         <section className="streetview-intro">
           <p>
@@ -73,19 +78,21 @@ const GoogleStreetViewPage = () => {
           </p>
         </section>
 
-        <section className="streetview-coordinates">
-          <h3>Coordinates:</h3>
-          <p className="coordinates-text">37.7749° N, 122.4194° W</p>{" "}
-          {/* Replace with actual coordinates */}
-          <a
-            href="https://www.google.com/maps"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="streetview-link"
-          >
-            Open in Google Maps
-          </a>
-        </section>
+
+      <section className="streetview-coordinates">
+        <h3>Coordinates:</h3>
+        <p className="coordinates-text">34°8′2.62″N 118°19′17.73″W</p>{" "}
+        {/* Replace with actual coordinates */}
+        <a
+          href="https://www.google.com/maps"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="streetview-link"
+        >
+          Open in Google Maps
+        </a>
+      </section>
+
 
         <section className="streetview-puzzle">
           <div className="input-section">

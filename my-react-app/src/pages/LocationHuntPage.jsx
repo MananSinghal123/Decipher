@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./LocationHuntPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
@@ -18,6 +18,10 @@ const LocationHuntPage = () => {
       setFeedback(
         "Correct! You've followed Satoshi's trail to the right location."
       );
+
+      navigate("/decipher-page");
+      // You can add code here to navigate to the next page or reveal more content
+
 
       try {
         // Make the API request to submit the task
@@ -44,6 +48,7 @@ const LocationHuntPage = () => {
         );
         console.error("Error submitting task:", error);
       }
+
     } else {
       setFeedback(
         "Incorrect. Remember, Satoshi was known for his subtlety. Try again!"
@@ -60,15 +65,25 @@ const LocationHuntPage = () => {
           <h2>Can you trace Satoshi's elusive path?</h2>
         </header>
 
-        <section className="location-hunt-intro">
-          <p>
-            Satoshi was known for his anonymity and the ability to remain
-            untraceable. To continue on your quest, you must prove your ability
-            to follow the trail of clues he left behind. Your next task is to
-            determine the correct location from a set of possibilities using the
-            given password or hint.
-          </p>
-        </section>
+
+      <section className="location-hunt-intro">
+        <p>
+          Satoshi was known for his anonymity and the ability to remain
+          untraceable. To continue on your quest, you must prove your ability to
+          follow the trail of clues he left behind. Your next task is to
+          determine the correct location from a set of possibilities using the
+          given password or hint.
+        </p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        >
+          Don't click on it. This doesn't serve any purpose. Our developers just
+          wanted to be funny. You've been warned!
+        </a>
+      </section>
+
 
         <section className="location-hunt-puzzle">
           <p className="puzzle-hint">

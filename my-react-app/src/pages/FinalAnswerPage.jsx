@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
 import "./FinalAnswerPage.css"; // Ensure you create this CSS file
@@ -9,6 +10,7 @@ const FinalAnswerPage = () => {
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
+
 
   // Correct answer for final answer page
   const correctAnswer = "BitcoinFinalKey"; // Replace with the actual hidden message
@@ -73,6 +75,7 @@ const FinalAnswerPage = () => {
   }
 
   // Render the Final Answer Page content if the user has completed all required tasks
+
   return (
     <div className="finalanswer-container">
       <header className="finalanswer-header">
@@ -82,15 +85,16 @@ const FinalAnswerPage = () => {
 
       <section className="finalanswer-intro">
         <p>
-          The final revelation is that the answer was embedded in the event
-          poster you received. Hidden using steganography or another technique,
-          the poster contains a jumbled keyword that reveals the final message.
+          The final revelation is that the answer was the event name all along!
+          But what is the question you may ask? Maybe you'll find what you seek
+          here:
         </p>
         <p>
-          Check the poster carefully to find the hidden keyword. Once you have
-          the final answer, enter it below.
+          https://drive.google.com/file/d/12eAz0ru4rSH-sQ4TB825goD6QZR_8_vf/view?usp=drive_link
         </p>
       </section>
+
+
 
       <section className="finalanswer-input">
         <div className="input-section">

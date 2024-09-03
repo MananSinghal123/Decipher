@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios for making HTTP requests
 import "./DecipherPage.css"; // Make sure to create this CSS file
@@ -12,7 +14,7 @@ export const DecipherPage = () => {
   ); // Initialize from local storage or default to 0
   const navigate = useNavigate(); // Hook to handle navigation
 
-  const correctAnswer = "examplecode"; // Replace with the actual answer
+  const correctAnswer = "chronos";
 
   // useEffect(() => {
   //   // Check if the user has completed the necessary tasks to access this page
@@ -26,6 +28,10 @@ export const DecipherPage = () => {
   const checkCode = async () => {
     if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
       setFeedback("Correct! You've unlocked the next clue.");
+
+      navigate("/binary-ip-address");
+      // You can add code here to navigate to the next page or reveal more content
+
 
       try {
         setIsLoading(true); // Start loading
@@ -65,6 +71,7 @@ export const DecipherPage = () => {
       } finally {
         setIsLoading(false); // End loading
       }
+
     } else {
       setFeedback("Incorrect. Try again!");
     }
@@ -99,8 +106,8 @@ export const DecipherPage = () => {
         />
         <p className="puzzle-text">
           "Encoded within the lines of history, protected by the simplest of
-          shifts, lies your key. Consider the third letter of every word,
-          shifted by three."
+          shifts, lies your key. FKURQRV : Send each letter 3 steps back in time
+          to reveal the hidden message."
         </p>
         <div className="puzzle-input">
           <label htmlFor="code">Enter the Code:</label>

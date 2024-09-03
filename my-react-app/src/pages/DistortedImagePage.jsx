@@ -1,4 +1,7 @@
+
+
 import React, { useState, useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import "./DistortedImagePage.css"; // Ensure you create this CSS file
@@ -13,13 +16,11 @@ const DistortedImagePage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after analyzing or reversing the distortion
-  const correctAnswer = "CipherTeam"; // Replace with the actual decoded message
+  const correctAnswer = "Innovate"; // Replace with the actual decoded message
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've deciphered the image. The next clue is: 'DecentralizeIt456'."
-      );
+      setFeedback("Correct! You've deciphered the image.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
 
       try {
@@ -52,7 +53,11 @@ const DistortedImagePage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/google-street-view"); // Replace '/google-street-view' with the actual path to your next page
+
+    navigate("/google-lens"); // Replace '/next-page' with the actual path to your next page
+
+   // Replace '/google-street-view' with the actual path to your next page
+
   };
 
   // Render content based on the current task state
@@ -65,13 +70,19 @@ const DistortedImagePage = () => {
           <h2>Analyze the image carefully to uncover the secret!</h2>
         </header>
 
-        <section className="distorted-intro">
-          <p>
-            The next fragment of Satoshi's code is hidden in an image, distorted
-            to prevent easy access. Analyze or reverse the distortion to reveal
-            the hidden clue.
-          </p>
-        </section>
+
+      <section className="distorted-image">
+        {/* Placeholder for the distorted image. Replace src with actual image URL */}
+        <img
+          src="../../innovate.jpeg"
+          alt="Distorted Clue"
+          className="distorted-puzzle-image"
+          style={{ transform: "scaleX(-1)" }}
+        />
+      </section>
+
+      
+
 
         <section className="distorted-image">
           {/* Placeholder for the distorted image. Replace src with actual image URL */}
