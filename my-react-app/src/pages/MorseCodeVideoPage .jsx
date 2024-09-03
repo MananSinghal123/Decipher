@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./MorseCodeVideoPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 
@@ -7,12 +7,12 @@ const MorseCodeVideoPage = () => {
   const [feedback, setFeedback] = useState("");
   const navigate = useNavigate();
 
-  const correctMessage = "satoshicryptography"; // Replace with the actual Morse code message decoded
+  const correctMessage = "kernel"; // Replace with the actual Morse code message decoded
 
   const checkMessage = () => {
     if (decodedMessage.toLowerCase() === correctMessage) {
       setFeedback("Correct! You've deciphered the hidden Morse code message.");
-      navigate("/llm-chatbot");
+      navigate("/final-answer");
       // You can add code here to navigate to the next page or reveal more content
     } else {
       setFeedback(
@@ -34,15 +34,29 @@ const MorseCodeVideoPage = () => {
           piece of the code is hidden in plain sight, in the blink of an eye.
           Watch the video carefully and see if you can decipher the hidden
           message in Morse code.
+          <br />
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.wikihow.com%2Fimages%2Fthumb%2F1%2F17%2FLearn-Morse-Code-Step-2-Version-4.jpg%2Fv4-460px-Learn-Morse-Code-Step-2-Version-4.jpg.webp&tbnid=-6iMM1I3FvoyVM&vet=1&imgrefurl=https%3A%2F%2Fwww.wikihow.com%2FLearn-Morse-Code&docid=gBbtRGbI5Y7vFM&w=460&h=345&hl=en-US&source=sh%2Fx%2Fim%2Fm1%2F4&kgs=e93059792281d28f&shem=abme%2Ctrie"
+          >
+            Hint
+          </a>
         </p>
       </section>
 
       <section className="morse-code-puzzle">
         {/* Replace 'video.mp4' with the actual video file path */}
-        <video width="600" controls className="morse-code-video">
-          <source src="video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/WTx_L2r4JlA?si=VmMAAaomQ-2N1i6r"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
         <p className="puzzle-hint">
           "Watch closely. The message is in the blinks. Decode the Morse code to
           find the hidden message."

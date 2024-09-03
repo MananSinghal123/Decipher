@@ -9,13 +9,11 @@ const BinaryIPAddressPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // The correct answer after decoding the binary IP address
-  const correctIPAddress = "192.168.1.1"; // Replace with your own binary encoded IP address equivalent
+  const correctIPAddress = "127.0.0.1"; // Replace with your own binary encoded IP address equivalent
 
   const checkIPAddress = () => {
     if (userInput === correctIPAddress) {
-      setFeedback(
-        "Correct! You've decoded the IP address. The next clue is: 'NetworkNinja42'."
-      );
+      setFeedback("Correct! You've decoded the IP address.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
     } else {
       setFeedback("Incorrect. Please try again.");
@@ -25,7 +23,7 @@ const BinaryIPAddressPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/dancing-with-flags"); // Replace '/next-page' with the actual path to your next page
+    navigate("/caesar-cipher"); // Replace '/next-page' with the actual path to your next page
   };
 
   return (
@@ -45,7 +43,7 @@ const BinaryIPAddressPage = () => {
 
       <section className="binary-ip-puzzle">
         <p className="binary-hint">
-          **Binary IP Address Hint:** 11000000.10101000.00000001.00000001
+          **Binary IP Address Hint:** 1111111.0000000.0000000.0000001
         </p>
         <div className="input-section">
           <label htmlFor="ipInput">Enter the Decoded IP Address:</label>

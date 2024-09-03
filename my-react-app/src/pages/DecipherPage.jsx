@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./DecipherPage.css"; // Make sure to create this CSS file
 import { useNavigate } from "react-router-dom";
 
@@ -7,12 +7,12 @@ export const DecipherPage = () => {
   const [feedback, setFeedback] = useState("");
   const navigate = useNavigate();
 
-  const correctAnswer = "examplecode"; // Replace with the actual answer
+  const correctAnswer = "chronos";
 
   const checkCode = () => {
     if (userInput.toLowerCase() === correctAnswer) {
       setFeedback("Correct! You've unlocked the next clue.");
-      navigate("/location-hunt");
+      navigate("/binary-ip-address");
       // You can add code here to navigate to the next page or reveal more content
     } else {
       setFeedback("Incorrect. Try again!");
@@ -45,8 +45,8 @@ export const DecipherPage = () => {
         />
         <p className="puzzle-text">
           "Encoded within the lines of history, protected by the simplest of
-          shifts, lies your key. Consider the third letter of every word,
-          shifted by three."
+          shifts, lies your key. FKURQRV : Send each letter 3 steps back in time
+          to reveal the hidden message."
         </p>
         <div className="puzzle-input">
           <label htmlFor="code">Enter the Code:</label>

@@ -1,24 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./FinalAnswerPage.css"; // Ensure you create this CSS file
 
 const FinalAnswerPage = () => {
   const [feedback, setFeedback] = useState("");
-
-  // Final answer revealed by examining the event poster
-  const correctAnswer = "BitcoinFinalKey"; // Replace with the actual hidden message
-
-  const checkAnswer = (userInput) => {
-    if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Congratulations! You've discovered the final answer hidden in plain sight. You've completed the Decipher event!"
-      );
-      // You can add navigation or reveal more content here
-    } else {
-      setFeedback(
-        "Incorrect. Please refer back to the event poster and try again."
-      );
-    }
-  };
 
   return (
     <div className="finalanswer-container">
@@ -29,29 +13,13 @@ const FinalAnswerPage = () => {
 
       <section className="finalanswer-intro">
         <p>
-          The final revelation is that the answer was embedded in the event
-          poster you received. Hidden using steganography or another technique,
-          the poster contains a jumbled keyword that reveals the final message.
+          The final revelation is that the answer was the event name all along!
+          But what is the question you may ask? Maybe you'll find what you seek
+          here:
         </p>
         <p>
-          Check the poster carefully to find the hidden keyword. Once you have
-          the final answer, enter it below.
+          https://drive.google.com/file/d/12eAz0ru4rSH-sQ4TB825goD6QZR_8_vf/view?usp=drive_link
         </p>
-      </section>
-
-      <section className="finalanswer-input">
-        <div className="input-section">
-          <label htmlFor="finalAnswerInput">Enter the Final Answer:</label>
-          <input
-            type="text"
-            id="finalAnswerInput"
-            name="finalAnswerInput"
-            placeholder="Enter the final answer"
-            onChange={(e) => checkAnswer(e.target.value)}
-          />
-        </div>
-
-        {feedback && <p className="feedback-message">{feedback}</p>}
       </section>
 
       <footer className="finalanswer-footer">

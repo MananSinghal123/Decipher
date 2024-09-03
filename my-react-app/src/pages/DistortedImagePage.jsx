@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./DistortedImagePage.css"; // Ensure you create this CSS file
 
@@ -9,13 +9,11 @@ const DistortedImagePage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after analyzing or reversing the distortion
-  const correctAnswer = "CipherTeam"; // Replace with the actual decoded message
+  const correctAnswer = "Innovate"; // Replace with the actual decoded message
 
   const checkAnswer = () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've deciphered the image. The next clue is: 'DecentralizeIt456'."
-      );
+      setFeedback("Correct! You've deciphered the image.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
     } else {
       setFeedback("Incorrect. Please try again.");
@@ -25,7 +23,7 @@ const DistortedImagePage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/google-street-view"); // Replace '/next-page' with the actual path to your next page
+    navigate("/google-lens"); // Replace '/next-page' with the actual path to your next page
   };
 
   return (
@@ -46,9 +44,10 @@ const DistortedImagePage = () => {
       <section className="distorted-image">
         {/* Placeholder for the distorted image. Replace src with actual image URL */}
         <img
-          src="path/to/your/distorted-image.jpg"
+          src="../../innovate.jpeg"
           alt="Distorted Clue"
           className="distorted-puzzle-image"
+          style={{ transform: "scaleX(-1)" }}
         />
       </section>
 

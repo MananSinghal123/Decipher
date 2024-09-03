@@ -9,13 +9,11 @@ const DancingWithFlagsPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after decoding the flag signals
-  const correctAnswer = "SignalFlag123"; // Replace with your actual correct answer
+  const correctAnswer = "genesis"; // Replace with your actual correct answer
 
   const checkAnswer = () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've decoded the flag signals. The next clue is: 'SteganographyMaster45'."
-      );
+      setFeedback("Correct! You've decoded the flag signals.");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
     } else {
       setFeedback("Incorrect. Please try again.");
@@ -25,7 +23,7 @@ const DancingWithFlagsPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the next page
-    navigate("/caesar-cipher"); // Replace '/next-page' with the actual path to your next page
+    navigate("/brain-fuck"); // Replace '/next-page' with the actual path to your next page
   };
 
   return (
@@ -45,13 +43,7 @@ const DancingWithFlagsPage = () => {
 
       <section className="flags-video">
         {/* Placeholder for the video. Replace src with actual video URL */}
-        <video controls width="600">
-          <source
-            src="path/to/your/dance-with-flags-video.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+        <img src="../../genesis.jpeg" />
       </section>
 
       <section className="flags-puzzle">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./GoogleLensPage.css"; // Ensure you create this CSS file
 
@@ -9,13 +9,11 @@ const GoogleLensPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer found by analyzing the image with Google Lens
-  const correctAnswer = "SatoshiFinalKey"; // Replace with the actual hidden message
+  const correctAnswer = "Moraine"; // Replace with the actual hidden message
 
   const checkAnswer = () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-      setFeedback(
-        "Correct! You've found the final key. Congratulations, you've completed the Decipher event!"
-      );
+      setFeedback("Correct! ");
       setShowNextButton(true); // Show the "Next" button when the answer is correct
     } else {
       setFeedback("Incorrect. Please try again.");
@@ -25,13 +23,13 @@ const GoogleLensPage = () => {
 
   const handleNextClick = () => {
     // Navigate to the final page or a completion page
-    navigate("/final-answer"); // Replace '/completion-page' with the actual path to your final page
+    navigate("/google-street-view"); // Replace '/completion-page' with the actual path to your final page
   };
 
   return (
     <div className="googlelens-container">
       <header className="googlelens-header">
-        <h1>Google Lens: Uncover the Final Clue</h1>
+        <h1>Google Lens: Uncover the Clue</h1>
         <h2>
           Use Google Lens to analyze the image and find the hidden message!
         </h2>
@@ -48,7 +46,7 @@ const GoogleLensPage = () => {
       <section className="googlelens-image">
         {/* Placeholder for the image to be analyzed with Google Lens. Replace src with actual image URL */}
         <img
-          src="path/to/your/image.jpg"
+          src="../../moraine.jpeg"
           alt="Hidden Clue"
           className="googlelens-puzzle-image"
         />
@@ -56,7 +54,7 @@ const GoogleLensPage = () => {
 
       <section className="googlelens-puzzle">
         <div className="input-section">
-          <label htmlFor="lensInput">Enter the Hidden Message:</label>
+          <label htmlFor="lensInput">Enter the name:</label>
           <input
             type="text"
             id="lensInput"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./LocationHuntPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const LocationHuntPage = () => {
       setFeedback(
         "Correct! You've followed Satoshi's trail to the right location."
       );
-      navigate("/morse-code-video");
+      navigate("/decipher-page");
       // You can add code here to navigate to the next page or reveal more content
     } else {
       setFeedback(
@@ -37,6 +37,14 @@ const LocationHuntPage = () => {
           determine the correct location from a set of possibilities using the
           given password or hint.
         </p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        >
+          Don't click on it. This doesn't serve any purpose. Our developers just
+          wanted to be funny. You've been warned!
+        </a>
       </section>
 
       <section className="location-hunt-puzzle">
