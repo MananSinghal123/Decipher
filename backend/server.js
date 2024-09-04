@@ -20,9 +20,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
   })
 );
-app.use("/", (req, res) => {
-  res.send({ message: "test success" });
-});
+
 app.use("/api/teams", require("./routes/teamRoutes"));
 
 // app.use(errorHandler);
