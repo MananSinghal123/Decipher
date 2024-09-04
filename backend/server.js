@@ -28,5 +28,3 @@ app.use("/api/teams", require("./routes/teamRoutes"));
 // app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
-
-module.exports(app);
