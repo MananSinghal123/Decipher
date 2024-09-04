@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios for making HTTP requests
 import "./DecipherPage.css"; // Make sure to create this CSS file
 import Footer from "./Footer";
+import image from "../timecapsule.gif";
+import image2 from "../satoshi.jpg";
 export const DecipherPage = () => {
   const [userInput, setUserInput] = useState(""); // State to manage user input
   const [feedback, setFeedback] = useState(""); // State to manage feedback messages
@@ -82,30 +84,35 @@ export const DecipherPage = () => {
         <h2>Unlock the Past, Secure the Future</h2>
       </header>
 
-      <section className="decipher-intro">
-        <p> 
-          <i>
-          Welcome, brave cryptographers, to the first challenge in your quest to
-          recover the Lost Code of Satoshi. Hidden within this time capsule is a
-          crucial fragment of the code that will unlock the secrets of the
-          digital future. Your mission is to decipher the hidden message and
-          access the next clue. Time is of the essence—work swiftly and
-          carefully, for every moment counts.
-          </i>
+      <div className="decipher-intro">
+
+      <div >
+        <img className="image2a" src={image2} alt="" />
+      </div>
           
+        <p className="paragraph"> 
+          <i>
+          <p>Satoshi Nakamoto laid the foundation of Blockchain using the already existing techniques such as Distributed Systems, Cryptography, etc.</p> 
+          <p>
+          Bitcoin (BTC, native Cryptocurrency) is the north star of the Chain.
+          </p>
+          
+          </i>
+
+     
         </p>
-      </section>
+      </div>
 
       <section className="decipher-puzzle">
         <img
-          src="time-capsule.webp"
+          src={image}
           alt="Time Capsule"
           className="time-capsule-image"
         />
         <p className="puzzle-text">
-          "Encoded within the lines of history, protected by the simplest of
-          shifts, lies your key. FKURQRV : Send each letter 3 steps back in time
-          to reveal the hidden message."
+          <b> TODO:</b> Shift each glyph to where shadows linger, thrice removed from the light, and the secret will reveal itself.
+          <br />
+          <b>Hint:</b> “History Always Wins, Processing Power is your best friend!”
         </p>
         <div className="puzzle-input">
           <label htmlFor="code">Enter the Code:</label>
@@ -123,6 +130,8 @@ export const DecipherPage = () => {
         </div>
         {feedback && <p className="feedback-message">{feedback}</p>}
       </section>
+
+      
 
       <div className="decipher-footer">
         <Footer></Footer>

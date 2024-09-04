@@ -3,6 +3,7 @@ import axios from "axios";
 import "./RegisterTeamPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import image from "../timecapsule.gif";
 const RegisterTeamPage = () => {
   const [teamName, setTeamName] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -46,6 +47,7 @@ const RegisterTeamPage = () => {
       <header className="register-team-header">
         <h1>Register Your Team</h1>
         <h2>Join the Decipher Event!</h2>
+        
       </header>
 
       <section className="register-team-form">
