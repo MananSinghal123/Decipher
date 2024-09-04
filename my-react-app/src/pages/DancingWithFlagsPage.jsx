@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./DancingWithFlagsPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
 import Footer from "./Footer";
+
 const DancingWithFlagsPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");

@@ -60,3 +60,11 @@
   font-size: 0.9em;
   color: #666;
 }
+
+.image{
+  background-color: black;
+  display: block;
+  margin: 10px auto;
+  max-width: 800px;
+
+}

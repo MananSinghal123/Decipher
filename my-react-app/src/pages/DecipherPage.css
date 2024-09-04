@@ -25,9 +25,17 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.decipher-intro{
+  display: flex;
+  flex-direction: row;
+  
+
+}
 .decipher-intro p {
   font-size: 16px;
   color: #333;
+  text-align: justify;
+  margin-left: 2rem;
 }
 
 .time-capsule-image {
@@ -37,6 +45,24 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.welcome{
+  text-align: justify;
+}
+
+.welcomepara{
+  text-align: center;
+}
+
+.image2a {
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  left: 0px;
+  justify-content: left;
+  padding-right: 13px;
 
 .puzzle-text {
   font-size: 18px;
@@ -98,3 +124,4 @@
 .decipher-footer a:hover {
   text-decoration: underline;
 }
+
