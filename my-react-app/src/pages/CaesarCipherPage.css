@@ -80,7 +80,7 @@
   color: white;
   padding: 15px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 180px;
 }
 
 .caesar-footer a {
@@ -91,4 +91,21 @@
 
 .caesar-footer a:hover {
   text-decoration: underline;
+}
+
+.btn-1,
+.btn-2 {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding for a square-ish shape */
+  border: none; /* Remove default border */
+  border-radius: 18px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Increase font size */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-1:hover,
+.btn-2:hover {
+  background-color: #45a049; /* Darker green on hover */
 }

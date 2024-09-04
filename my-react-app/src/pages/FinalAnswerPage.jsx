@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
 import "./FinalAnswerPage.css"; // Ensure you create this CSS file
-
+import Footer from "./Footer";
 const FinalAnswerPage = () => {
   const [userInput, setUserInput] = useState(""); // State to manage user input
   const [feedback, setFeedback] = useState(""); // State to manage feedback messages
@@ -15,7 +15,7 @@ const FinalAnswerPage = () => {
 
   useEffect(() => {
     // Check if the user has completed all tasks (up to the required last task)
-    if (lastTaskState < 11) {
+    if (lastTaskState <10) {
       setFeedback(
         "You have not completed all required tasks to access the final answer page."
       );
@@ -58,7 +58,7 @@ const FinalAnswerPage = () => {
   };
 
   // Conditional rendering based on lastTaskState
-  if (lastTaskState < 11) {
+  if (lastTaskState <10) {
     // If the user has not completed the required tasks, show a message
     return (
       <div className="finalanswer-container">
@@ -111,12 +111,9 @@ const FinalAnswerPage = () => {
         {feedback && <p className="feedback-message">{feedback}</p>}
       </section>
 
-      <footer className="finalanswer-footer">
-        <p>
-          &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-          <a href="/rules">Rules</a>
-        </p>
-      </footer>
+      <div className="finalanswer-footer">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

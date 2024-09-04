@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CaesarCipherPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
-
+import Footer from "./Footer";
 const CaesarCipherPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -14,7 +14,7 @@ const CaesarCipherPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after decoding the Caesar cipher
-  const correctAnswer = "Laodamia"; // Replace with the actual decoded location name
+  const correctAnswer = import.meta.env.VITE_CORRECT_ANSWER_CAESAR; // Replace with the actual decoded location name
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
@@ -95,12 +95,9 @@ const CaesarCipherPage = () => {
           )} */}
         </section>
 
-        <footer className="caesar-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="caesar-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {

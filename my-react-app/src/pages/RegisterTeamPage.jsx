@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./RegisterTeamPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
-
+import Footer from "./Footer";
 const RegisterTeamPage = () => {
   const [teamName, setTeamName] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -71,12 +71,9 @@ const RegisterTeamPage = () => {
         {feedback && <p className="feedback-message">{feedback}</p>}
       </section>
 
-      <footer className="register-team-footer">
-        <p>
-          &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-          <a href="/rules">Rules</a>
-        </p>
-      </footer>
+      {/* <div className="register-team-footer">
+        <Footer></Footer>
+      </div> */}
     </div>
   );
 };

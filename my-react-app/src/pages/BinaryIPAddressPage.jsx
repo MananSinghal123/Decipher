@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BinaryIPAddressPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
+import Footer from "./Footer";
+
 
 const BinaryIPAddressPage = () => {
   const [userInput, setUserInput] = useState("");
@@ -13,7 +15,9 @@ const BinaryIPAddressPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // The correct answer after decoding the binary IP address
-  const correctIPAddress = "127.0.0.1"; // Replace with your own binary encoded IP address equivalent
+  const correctIPAddress = import.meta.env.VITE_CORRECT_IP_ADDRESS;
+
+ // Replace with your own binary encoded IP address equivalent
 
   const checkIPAddress = async () => {
     if (userInput === correctIPAddress) {
@@ -93,12 +97,9 @@ const BinaryIPAddressPage = () => {
           )} */}
         </section>
 
-        <footer className="binary-ip-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="binary-ip-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {

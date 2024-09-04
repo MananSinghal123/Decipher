@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./MorseCodeVideoPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
-
+import Footer from "./Footer";
 const MorseCodeVideoPage = () => {
   const [decodedMessage, setDecodedMessage] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -80,13 +80,15 @@ const MorseCodeVideoPage = () => {
         <section className="morse-code-puzzle">
           {/* Replace 'video.mp4' with the actual video file path */}
           <iframe
-            width="560"
-            height="315"
+          width="50%"
+          height="50%"
+            // width="560"
+            // height="315"
             src="https://www.youtube.com/embed/WTx_L2r4JlA?si=VmMAAaomQ-2N1i6r"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
           <p className="puzzle-hint">
@@ -111,13 +113,11 @@ const MorseCodeVideoPage = () => {
 
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
-
-        <footer className="morse-code-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+      
+      <div className="morse-code-footer">
+        <Footer></Footer>
+      </div>
+        
       </div>
     );
   } else {

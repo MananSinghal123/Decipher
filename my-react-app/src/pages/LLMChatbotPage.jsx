@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LLMChatbotPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
-
+import Footer from "./Footer";
 const LLMChatbotPage = () => {
   const [chatLog, setChatLog] = useState([]);
   const [userInput, setUserInput] = useState("");
@@ -139,12 +139,9 @@ const LLMChatbotPage = () => {
           )}
         </section>
 
-        <footer className="chatbot-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="chatbot-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {

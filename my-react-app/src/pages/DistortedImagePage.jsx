@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import "./DistortedImagePage.css"; // Ensure you create this CSS file
-
+import Footer from "./Footer";
 const DistortedImagePage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -14,7 +14,7 @@ const DistortedImagePage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after analyzing or reversing the distortion
-  const correctAnswer = "Innovate"; // Replace with the actual decoded message
+  const correctAnswer = import.meta.env.VITE_CORRECT_ANSWER_DISTORTED; // Replace with the actual decoded message
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
@@ -70,15 +70,6 @@ const DistortedImagePage = () => {
           />
         </section>
 
-        <section className="distorted-image">
-          {/* Placeholder for the distorted image. Replace src with actual image URL */}
-          <img
-            src="path/to/your/distorted-image.jpg"
-            alt="Distorted Clue"
-            className="distorted-puzzle-image"
-          />
-        </section>
-
         <section className="distorted-puzzle">
           <div className="input-section">
             <label htmlFor="imageInput">Enter the Decoded Message:</label>
@@ -98,12 +89,11 @@ const DistortedImagePage = () => {
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="distorted-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="distorted-footer">
+          <Footer>
+
+          </Footer>
+        </div>
       </div>
     );
   } else {

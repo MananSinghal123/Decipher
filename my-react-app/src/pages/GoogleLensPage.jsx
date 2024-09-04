@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import "./GoogleLensPage.css"; // Ensure you create this CSS file
-
+import Footer from "./Footer";
 const GoogleLensPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -115,12 +115,9 @@ const GoogleLensPage = () => {
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="googlelens-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="googlelens-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {

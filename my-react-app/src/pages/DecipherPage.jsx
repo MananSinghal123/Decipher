@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios for making HTTP requests
 import "./DecipherPage.css"; // Make sure to create this CSS file
-
+import Footer from "./Footer";
 export const DecipherPage = () => {
   const [userInput, setUserInput] = useState(""); // State to manage user input
   const [feedback, setFeedback] = useState(""); // State to manage feedback messages
@@ -13,7 +13,7 @@ export const DecipherPage = () => {
   ); // Initialize from local storage or default to 0
   const navigate = useNavigate(); // Hook to handle navigation
 
-  const correctAnswer = "chronos";
+  const correctAnswer = import.meta.env.VITE_CORRECT_ANSWER_DECIPHER;
 
   // useEffect(() => {
   //   // Check if the user has completed the necessary tasks to access this page
@@ -83,13 +83,16 @@ export const DecipherPage = () => {
       </header>
 
       <section className="decipher-intro">
-        <p>
+        <p> 
+          <i>
           Welcome, brave cryptographers, to the first challenge in your quest to
           recover the Lost Code of Satoshi. Hidden within this time capsule is a
           crucial fragment of the code that will unlock the secrets of the
           digital future. Your mission is to decipher the hidden message and
           access the next clue. Time is of the essence—work swiftly and
           carefully, for every moment counts.
+          </i>
+          
         </p>
       </section>
 
@@ -121,12 +124,9 @@ export const DecipherPage = () => {
         {feedback && <p className="feedback-message">{feedback}</p>}
       </section>
 
-      <footer className="decipher-footer">
-        <p>
-          &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-          <a href="/rules">Rules</a>
-        </p>
-      </footer>
+      <div className="decipher-footer">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

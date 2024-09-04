@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./DancingWithFlagsPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
-
+import Footer from "./Footer";
 const DancingWithFlagsPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -14,7 +14,7 @@ const DancingWithFlagsPage = () => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   // Correct answer after decoding the flag signals
-  const correctAnswer = "genesis"; // Replace with your actual correct answer
+  const correctAnswer = import.meta.env.VITE_CORRECT_ANSWER_DANCING; // Replace with your actual correct answer
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
@@ -93,12 +93,9 @@ const DancingWithFlagsPage = () => {
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="flags-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="flags-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {

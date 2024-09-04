@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./LocationHuntPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
-
+import Footer from "./Footer";
 const LocationHuntPage = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -109,12 +109,10 @@ const LocationHuntPage = () => {
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="location-hunt-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="location-hunt-footer">
+          <Footer></Footer>
+        </div>
+        
       </div>
     );
   } else {

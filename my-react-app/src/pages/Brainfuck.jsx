@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import "./CaesarCipherPage.css"; // Ensure you create this CSS file
-
+// import "./brainfuck.css"; // Ensure you create this CSS file
+import Footer from "./Footer";
 const Brainfuck = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -11,35 +12,16 @@ const Brainfuck = () => {
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
   const navigate = useNavigate(); // Hook to handle navigation
+  const [allternateQuestion, setallternateQuestion] = useState(false)
 
   // Correct answer after decoding the Brainfuck cipher
-  const correctAnswer = "pointer"; // Replace with the actual decoded location name
-
-  const skipQuestion = async () => {
-    try {
-      // Make the API request to submit the task
-      const response = await axios.post(
-        "http://localhost:5000/api/teams/task",
-        {
-          taskNumber: 10, // Assuming the task number is 10
-          team: localStorage.getItem("teamName"), // Get the team name from local storage
-        }
-      );
-
-      // Extract currentTask and lastTask from the response data
-      const { currentTask, lastTask } = response.data;
-
-      // Update the state and local storage with the new last task
-      setLastTaskState(lastTask);
-      localStorage.setItem("lastTask", lastTask);
-      navigate("/optional-question");
-    } catch (error) {
-      setFeedback(
-        "There was an error changing the task. Please try again later."
-      );
-      console.error("Error skipping task:", error);
-    }
-  };
+  // Replace with the actual decoded location name
+  const [correctAnswer,setcorrectAnswer] = useState("pointer");
+  
+  const alternateQuestionHandler = async ()=>{
+    setallternateQuestion(true);
+    setcorrectAnswer("pointer2");
+  }
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
@@ -51,7 +33,7 @@ const Brainfuck = () => {
         const response = await axios.post(
           "http://localhost:5000/api/teams/task",
           {
-            taskNumber: 11, // Assuming the task number is 10
+            taskNumber: 10, // Assuming the task number is 10
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -88,15 +70,15 @@ const Brainfuck = () => {
         </header>
 
         <section className="caesar-intro">
-          <p>
+          {!allternateQuestion ? <p>
             As you delve deeper into the world of cryptography, you encounter a
             non-classic, not very family-friendly form of encryption. Decode the
             cipher to reveal the location of the next clue.
-          </p>
+          </p> : <p>Alternate Question</p> } 
         </section>
 
         <section className="caesar-puzzle">
-          <p className="cipher-text">{brainfuckCode}</p>
+          <p className="cipher-text">{!allternateQuestion ? brainfuckCode : "String alternatee is lawda"}</p>
           <div className="input-section">
             <label htmlFor="cipherInput">Enter the Decoded Message:</label>
             <input
@@ -107,23 +89,21 @@ const Brainfuck = () => {
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
             />
-            <button type="button" onClick={checkAnswer}>
+            <button className="btn-1" type="button" onClick={checkAnswer}>
               Submit
             </button>
-            <button type="button" onClick={skipQuestion}>
+            {!allternateQuestion&& <button className="btn-2" type="button" onClick={alternateQuestionHandler}>
               Alternate
-            </button>
+            </button> }
+           
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="caesar-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="caesar-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {

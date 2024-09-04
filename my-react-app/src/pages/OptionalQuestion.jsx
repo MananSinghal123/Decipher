@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import "./CaesarCipherPage.css"; // Ensure you create this CSS file
-
+import Footer from "./Footer";
 const OptionalQuestion = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -89,12 +89,9 @@ casccs`; // pointer
           {feedback && <p className="feedback-message">{feedback}</p>}
         </section>
 
-        <footer className="caesar-footer">
-          <p>
-            &copy; 2140 Decipher Event | <a href="/">Home</a> |{" "}
-            <a href="/rules">Rules</a>
-          </p>
-        </footer>
+        <div className="caesar-footer">
+          <Footer></Footer>
+        </div>
       </div>
     );
   } else {
