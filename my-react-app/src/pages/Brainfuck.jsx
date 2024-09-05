@@ -3,32 +3,19 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CaesarCipherPage.css";
 import Footer from "./Footer";
-import LnmiitMap from '../../public/lnmiitmap.png';
+import LnmiitMap from "../../public/lnmiitmap.png";
 
 const Brainfuck = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
   const [lastTaskState, setLastTaskState] = useState(
     parseInt(localStorage.getItem("lastTask") || "0", 10)
-<<<<<<< HEAD
-  ); // Initialize from local storage or default to 0
-  const navigate = useNavigate(); // Hook to handle navigation
-  const [allternateQuestion, setallternateQuestion] = useState(false);
-
-  // Correct answer after decoding the Brainfuck cipher
-  // Replace with the actual decoded location name
-  const [correctAnswer, setcorrectAnswer] = useState("pointer");
-
-  const alternateQuestionHandler = async () => {
-    setallternateQuestion(true);
-    setcorrectAnswer("pointer2");
-=======
   );
   const navigate = useNavigate();
-  
+
   // Initialize allternateQuestion state from localStorage
   const [allternateQuestion, setallternateQuestion] = useState(
-    localStorage.getItem("allternateQuestion") ||  false
+    localStorage.getItem("allternateQuestion") || false
   );
 
   const [correctAnswer, setcorrectAnswer] = useState("pointer");
@@ -36,18 +23,17 @@ const Brainfuck = () => {
   useEffect(() => {
     // Save allternateQuestion state to localStorage whenever it changes
     localStorage.setItem("allternateQuestion", allternateQuestion);
-    if(allternateQuestion){
+    if (allternateQuestion) {
       setcorrectAnswer("pointer2");
-    }else{
+    } else {
       setcorrectAnswer("pointer");
     }
   }, [allternateQuestion]);
 
   const alternateQuestionHandler = async () => {
     setallternateQuestion(true);
-    
+
     // setcorrectAnswer("pointer2");
->>>>>>> b8b78ee725e371b54b2c92a72ecb01b5c09f3fec
   };
 
   const checkAnswer = async () => {
@@ -87,26 +73,10 @@ const Brainfuck = () => {
         <header className="caesar-header">
           <h1>Brain Fuck: Uncover the Hidden Message</h1>
           <h2>Decode the cipher to move to next level</h2>
-          
         </header>
 
         <section className="caesar-intro">
-<<<<<<< HEAD
-          {!allternateQuestion ? (
-            <p>
-              As you delve deeper into the world of cryptography, you encounter
-              a non-classic, not very family-friendly form of encryption. Decode
-              the cipher to reveal the location of the next clue.
-            </p>
-          ) : (
-            <p>
-              You're currently at an alternate stage of the challenge. To
-              proceed with this stage, you've been provided with a map showing
-              four points. Just explore the area, and you'll find hints waiting
-              for you at each marked location.
-            </p>
-=======
-        <h3>Puzzle #10</h3>
+          <h3>Puzzle #10</h3>
           {!allternateQuestion ? (
             <div>
               <p>
@@ -121,23 +91,12 @@ const Brainfuck = () => {
               <p>Alternate Question</p>
               <img src={LnmiitMap} alt="Lnmiit Map" className="lnmiitimg" />
             </div>
->>>>>>> b8b78ee725e371b54b2c92a72ecb01b5c09f3fec
           )}
         </section>
 
         <section className="caesar-puzzle">
           <p className="cipher-text">
-<<<<<<< HEAD
-            {!allternateQuestion ? (
-              brainfuckCode
-            ) : (
-              <img src="/genesis.jpeg"></img>
-            )}
-=======
-            {!allternateQuestion
-              ? brainfuckCode
-              : "String alternatee is lawda"}
->>>>>>> b8b78ee725e371b54b2c92a72ecb01b5c09f3fec
+            {!allternateQuestion ? brainfuckCode : "String alternatee is lawda"}
           </p>
           <div className="input-section">
             <label htmlFor="cipherInput">Enter the Decoded Message:</label>
