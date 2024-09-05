@@ -25,7 +25,7 @@ const CaesarCipherPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 4, // Assuming the task number is 7
             team: localStorage.getItem("teamName"), // Get the team name from local storage
