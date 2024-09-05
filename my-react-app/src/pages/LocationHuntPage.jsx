@@ -3,6 +3,7 @@ import "./LocationHuntPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import Footer from "./Footer";
+import image2 from "../satoshinaka.jpg"
 const LocationHuntPage = () => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -24,7 +25,7 @@ const LocationHuntPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 2, // Assuming the task number is 2
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -62,29 +63,33 @@ const LocationHuntPage = () => {
           <h2>Can you trace Satoshi's elusive path?</h2>
         </header>
 
-        <section className="location-hunt-intro">
+        <div className="location-hunt-intro">
+
+          <div>
+            <img src={image2} alt="" />
+          </div>
           <p>
-            Satoshi was known for his anonymity and the ability to remain
-            untraceable. To continue on your quest, you must prove your ability
-            to follow the trail of clues he left behind. Your next task is to
-            determine the correct location from a set of possibilities using the
-            given password or hint.
+          Known for anonymity & intractability, yet left a trail of cues behind. 
+<br />
+Find his history there, to make your history here.
           </p>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           >
-            Don't click on it. This doesn't serve any purpose. Our developers
-            just wanted to be funny. You've been warned!
+            Don't click on it. Our developers
+            just wanted to be funny. 🙄
           </a>
-        </section>
+        </div>
 
         <section className="location-hunt-puzzle">
+          <h3>Puzzle #2</h3>
           <p className="puzzle-hint">
-            "To find the next piece of the puzzle, think of the place where
-            Satoshi's spirit of innovation meets the heart of technological
-            advancement. Use this hint wisely: 'Rising Sun'."
+            "TO FIND: <span id="apla">A Place.</span>
+            <br />
+            
+Hint: Relates Mr. Nakamoto to the world. A peaceful, yet bombastic place.."
           </p>
 
           <div className="location-select">
@@ -97,9 +102,17 @@ const LocationHuntPage = () => {
             >
               <option value="">Select a location</option>
               <option value="Silicon Valley">Silicon Valley</option>
-              <option value="Tokyo Tower">Tokyo Tower</option>
               <option value="Blockchain Park">Blockchain Park</option>
               <option value="London Bridge">London Bridge</option>
+              <option value="Tokyo Tower">Tokyo Tower</option>
+              <option value="venice">Venice</option>
+              <option value="OHIO">ohio</option>
+              <option value="amsterdam">Amsterdam</option>
+              <option value="india">India</option>
+              <option value="mittal kallej">Mittal Kalej</option>
+              <option value="mittal kallej">Shanghai</option>
+              <option value="mittal kallej">Singapore</option>
+
             </select>
             <button type="button" onClick={checkLocation}>
               Submit

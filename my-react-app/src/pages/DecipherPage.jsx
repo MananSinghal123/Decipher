@@ -36,7 +36,7 @@ export const DecipherPage = () => {
 
         // Make the API request to submit the task progress
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 1, // Replace with the correct task number
             team: localStorage.getItem("teamName"),
@@ -85,12 +85,13 @@ export const DecipherPage = () => {
       </header>
 
       <div className="decipher-intro">
-
+      
       <div >
         <img className="image2a" src={image2} alt="" />
       </div>
           
         <p className="paragraph"> 
+        <h3>#Fact</h3>
           <i>
           <p>Satoshi Nakamoto laid the foundation of Blockchain using the already existing techniques such as Distributed Systems, Cryptography, etc.</p> 
           <p>
@@ -104,6 +105,7 @@ export const DecipherPage = () => {
       </div>
 
       <section className="decipher-puzzle">
+        <h1>Puzzle #1</h1>
         <img
           src={image}
           alt="Time Capsule"
@@ -112,7 +114,10 @@ export const DecipherPage = () => {
         <p className="puzzle-text">
           <b> TODO:</b> Shift each glyph to where shadows linger, thrice removed from the light, and the secret will reveal itself.
           <br />
-          <b>Hint:</b> “History Always Wins, Processing Power is your best friend!”
+          <b>Hint:</b> “History Always Wins, <b>Reading</b> Power is your best friend!”
+          <br />
+          <br />
+          The phrase is: <b>ZKLWHSDSHU </b>
         </p>
         <div className="puzzle-input">
           <label htmlFor="code">Enter the Code:</label>

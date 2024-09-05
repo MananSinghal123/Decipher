@@ -25,7 +25,7 @@ const DancingWithFlagsPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 8, // Assuming the task number is 6
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -57,16 +57,14 @@ const DancingWithFlagsPage = () => {
     return (
       <div className="flags-container">
         <header className="flags-header">
-          <h1>Dancing with Flags: Decode the Signal</h1>
+          <h1>Dancing with Flags</h1>
           <h2>Watch carefully and uncover the hidden message!</h2>
         </header>
 
         <section className="flags-intro">
+        <h3>Puzzle #8</h3>
           <p>
-            Satoshi's code was distributed across different media, including old
-            forms of communication. Here, it’s embedded in a seemingly innocuous
-            dance. Decode the flag signals to uncover the next piece of the
-            code.
+          With colors swirling in a dance so grand, the signals speak where flags command. <br /> Decode their rhythm in the signal’s flight, and hidden messages will come to light.
           </p>
         </section>
 

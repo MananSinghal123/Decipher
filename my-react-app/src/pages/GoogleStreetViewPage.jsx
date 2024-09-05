@@ -25,7 +25,7 @@ const GoogleStreetViewPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 7, // Assuming the task number is 9
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -57,31 +57,29 @@ const GoogleStreetViewPage = () => {
     return (
       <div className="streetview-container">
         <header className="streetview-header">
-          <h1>Google Street View: Find the Hidden Message</h1>
-          <h2>Follow the coordinates to discover the next clue!</h2>
-          <h3>Hint: It's on a Hill</h3>
+          <h1>Geo Guesser!! </h1>
+          <h2>Follow the coordinates, wander around the earth!</h2>
         </header>
 
         <section className="streetview-intro">
+        <h3>Puzzle #7</h3>
           <p>
-            The clue takes you to the real world, where the digital and physical
-            worlds intersect. Use the coordinates below to explore Google Street
-            View and find a hidden password or message.
+          Where neon dreams and glimmers play, find the sign that lights the way. <br /> In the shadow of fame’s bright glare, the truth awaits if you dare to stare.  
           </p>
         </section>
 
         <section className="streetview-coordinates">
           <h3>Coordinates:</h3>
-          <p className="coordinates-text">34°8′2.62″N 118°19′17.73″W</p>{" "}
+          <p className="coordinates-text">4MMH+J9LA</p>{" "}
           {/* Replace with actual coordinates */}
-          <a
+          {/* <a
             href="https://www.google.com/maps"
             target="_blank"
             rel="noopener noreferrer"
             className="streetview-link"
           >
-            Open in Google Maps
-          </a>
+            Wanna use Google Maps?
+          </a> */}
         </section>
 
         <section className="streetview-puzzle">

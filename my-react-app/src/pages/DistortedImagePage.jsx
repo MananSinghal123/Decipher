@@ -24,7 +24,7 @@ const DistortedImagePage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `{import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 5, // Assuming the task number is 8
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -57,18 +57,21 @@ const DistortedImagePage = () => {
       <div className="distorted-container">
         <header className="distorted-header">
           <h1>Distorted Image: Reveal the Hidden Clue</h1>
-          <h2>Analyze the image carefully to uncover the secret!</h2>
+          <h2>Awareness is Light, Unawareness is Darkness!</h2>
         </header>
-
+        <h3>Puzzle #5</h3>
         <section className="distorted-image">
+          
           {/* Placeholder for the distorted image. Replace src with actual image URL */}
           <img
-            src="../../innovate.jpeg"
+            src="../../innovatenew.png"
             alt="Distorted Clue"
             className="distorted-puzzle-image"
             style={{ transform: "scaleX(-1)" }}
           />
+          
         </section>
+       
 
         <section className="distorted-puzzle">
           <div className="input-section">
