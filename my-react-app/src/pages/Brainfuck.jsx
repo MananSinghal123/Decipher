@@ -12,16 +12,16 @@ const Brainfuck = () => {
     parseInt(localStorage.getItem("lastTask") || "0", 10)
   ); // Initialize from local storage or default to 0
   const navigate = useNavigate(); // Hook to handle navigation
-  const [allternateQuestion, setallternateQuestion] = useState(false)
+  const [allternateQuestion, setallternateQuestion] = useState(false);
 
   // Correct answer after decoding the Brainfuck cipher
   // Replace with the actual decoded location name
-  const [correctAnswer,setcorrectAnswer] = useState("pointer");
-  
-  const alternateQuestionHandler = async ()=>{
+  const [correctAnswer, setcorrectAnswer] = useState("pointer");
+
+  const alternateQuestionHandler = async () => {
     setallternateQuestion(true);
     setcorrectAnswer("pointer2");
-  }
+  };
 
   const checkAnswer = async () => {
     if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
@@ -70,15 +70,30 @@ const Brainfuck = () => {
         </header>
 
         <section className="caesar-intro">
-          {!allternateQuestion ? <p>
-            As you delve deeper into the world of cryptography, you encounter a
-            non-classic, not very family-friendly form of encryption. Decode the
-            cipher to reveal the location of the next clue.
-          </p> : <p>Alternate Question</p> } 
+          {!allternateQuestion ? (
+            <p>
+              As you delve deeper into the world of cryptography, you encounter
+              a non-classic, not very family-friendly form of encryption. Decode
+              the cipher to reveal the location of the next clue.
+            </p>
+          ) : (
+            <p>
+              You're currently at an alternate stage of the challenge. To
+              proceed with this stage, you've been provided with a map showing
+              four points. Just explore the area, and you'll find hints waiting
+              for you at each marked location.
+            </p>
+          )}
         </section>
 
         <section className="caesar-puzzle">
-          <p className="cipher-text">{!allternateQuestion ? brainfuckCode : "String alternatee is lawda"}</p>
+          <p className="cipher-text">
+            {!allternateQuestion ? (
+              brainfuckCode
+            ) : (
+              <img src="/genesis.jpeg"></img>
+            )}
+          </p>
           <div className="input-section">
             <label htmlFor="cipherInput">Enter the Decoded Message:</label>
             <input
@@ -92,10 +107,15 @@ const Brainfuck = () => {
             <button className="btn-1" type="button" onClick={checkAnswer}>
               Submit
             </button>
-            {!allternateQuestion&& <button className="btn-2" type="button" onClick={alternateQuestionHandler}>
-              Alternate
-            </button> }
-           
+            {!allternateQuestion && (
+              <button
+                className="btn-2"
+                type="button"
+                onClick={alternateQuestionHandler}
+              >
+                Alternate
+              </button>
+            )}
           </div>
 
           {feedback && <p className="feedback-message">{feedback}</p>}

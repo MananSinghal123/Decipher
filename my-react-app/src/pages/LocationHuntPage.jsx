@@ -112,7 +112,6 @@ const LocationHuntPage = () => {
         <div className="location-hunt-footer">
           <Footer></Footer>
         </div>
-        
       </div>
     );
   } else {
