@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./CaesarCipherPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
 import Footer from "./Footer";
+import poem from "../poem.gif"
 const CaesarCipherPage = () => {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -24,7 +25,7 @@ const CaesarCipherPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`
           {
             taskNumber: 4, // Assuming the task number is 7
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -56,11 +57,15 @@ const CaesarCipherPage = () => {
     return (
       <div className="caesar-container">
         <header className="caesar-header">
-          <h1>Caesar Cipher: Uncover the Hidden Poem</h1>
+          <h1>Poetic Cipher: Really?</h1>
           <h2></h2>
         </header>
 
         <section className="caesar-intro">
+          <div className="imagepoemdiv">
+            <img className="imagepoem" src={poem} alt="" />
+            <h3>Puzzle #4</h3>
+          </div>
           <p>
             "With sacrifice before the rising morn Vows have I made by fruitless
             hope inspired; And from the infernal Gods, 'mid shades forlorn Of
@@ -70,7 +75,7 @@ const CaesarCipherPage = () => {
         </section>
 
         <section className="caesar-puzzle">
-          <p className="cipher-text">What is this? Literary Club? xD</p>
+          <p className="cipher-text">गूगल आंकड़े दे सकता है, ज्ञान नहीं; but Google FTW!</p>
           <div className="input-section">
             <label htmlFor="cipherInput">Enter the name:</label>
             <input

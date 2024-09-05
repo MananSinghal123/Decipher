@@ -3,7 +3,7 @@ import axios from "axios";
 import "./RegisterTeamPage.css"; // Ensure you create this CSS file
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
-import image from "../timecapsule.gif";
+import image from "../registrationform-1.jpg";
 const RegisterTeamPage = () => {
   const [teamName, setTeamName] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -16,7 +16,7 @@ const RegisterTeamPage = () => {
     setFeedback("");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/teams", {
+      const response = await axios.post(`${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams`, {
         teamName,
       });
       console.log(response.status);
@@ -47,7 +47,9 @@ const RegisterTeamPage = () => {
       <header className="register-team-header">
         <h1>Register Your Team</h1>
         <h2>Join the Decipher Event!</h2>
-        
+        <dir>
+          <img src={image} alt="" />
+        </dir>
       </header>
 
       <section className="register-team-form">
