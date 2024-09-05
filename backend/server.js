@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URI, // Allow requests from this origin
+    origin: `*`, // Allow requests from this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
   })
