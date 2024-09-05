@@ -18,6 +18,7 @@ import LeaderboardPage from "./pages/LeaderboardPage";
 import RegisterTeamPage from "./pages/RegisterTeamPage";
 import DisableBackNavigation from "./DisableBackNavigation";
 import OptionalQuestion from "./pages/OptionalQuestion";
+import CVQuestions from "./pages/CVQuestions";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             element={<DancingWithFlagsPage />}
           />{" "}
           <Route path="/morse-code-video" element={<MorseCodeVideoPage />} />
+          <Route path="/cv-questions" element={<CVQuestions />} />
           <Route path="/brain-fuck" element={<Brainfuck />} />
           {/* <Route path="/optional-question" element={<OptionalQuestion />} /> */}
           <Route path="/final-answer" element={<FinalAnswerPage />} />

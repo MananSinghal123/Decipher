@@ -33,7 +33,7 @@ const FinalAnswerPage = () => {
         const response = await axios.post(
           `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
-            taskNumber: 11, // Assuming the task number is 10
+            taskNumber: 12, // Assuming the task number is 10
             team: localStorage.getItem("teamName"), // Get the team name from local storage
           }
         );
@@ -58,7 +58,7 @@ const FinalAnswerPage = () => {
   };
 
   // Conditional rendering based on lastTaskState
-  if (lastTaskState <10) {
+  if (lastTaskState <11) {
     // If the user has not completed the required tasks, show a message
     return (
       <div className="finalanswer-container">
