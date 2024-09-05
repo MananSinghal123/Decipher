@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./BinaryIPAddressPage.css"; // Ensure you create this CSS file
 import axios from "axios"; // Import axios
 import Footer from "./Footer";
-
+import onof from "../onoff.gif"
 
 const BinaryIPAddressPage = () => {
   const [userInput, setUserInput] = useState("");
@@ -26,7 +26,7 @@ const BinaryIPAddressPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 3, // Assuming the task number is 5
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -62,19 +62,22 @@ const BinaryIPAddressPage = () => {
         </header>
 
         <section className="binary-ip-intro">
+          <div>
+            <img src={onof} alt="" />
+          </div>
           <p>
-            The next clue is hidden in the digital realm, where Satoshi's code
-            has been fragmented and stored in a binary encoded IP address.
-            Decode the binary IP address to access the next clue.
+          Amidst the endless code of ones and zeroes, truth emerges in the space between. <br /> 
+          Trust the pattern to unveil what hides in plain sight.
           </p>
         </section>
 
         <section className="binary-ip-puzzle">
+          <h3>Puzzle #3</h3>
           <p className="binary-hint">
-            **Binary IP Address Hint:** 1111111.0000000.0000000.0000001
+             <b>DECIPHER</b> THIS : 1111111.0000000.0000000.0000001
           </p>
           <div className="input-section">
-            <label htmlFor="ipInput">Enter the Decoded IP Address:</label>
+            <label htmlFor="ipInput">Enter the Decoded IP :</label>
             <input
               type="text"
               id="ipInput"

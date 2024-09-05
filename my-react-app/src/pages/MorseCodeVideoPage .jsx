@@ -22,7 +22,7 @@ const MorseCodeVideoPage = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 9, // Assuming the task number is 3
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -61,11 +61,9 @@ const MorseCodeVideoPage = () => {
         </header>
 
         <section className="morse-code-intro">
+        <h3>Puzzle #9</h3>
           <p>
-            Satoshi's communication was always encrypted and subtle. The next
-            piece of the code is hidden in plain sight, in the blink of an eye.
-            Watch the video carefully and see if you can decipher the hidden
-            message in Morse code.
+          In the silent ballet of coded light, observe the pattern within the night. <br /> With careful gaze and patient ear, the message hidden will soon appear.
             <br />
             <a
               target="_blank"
@@ -89,7 +87,7 @@ const MorseCodeVideoPage = () => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
           <p className="puzzle-hint">
             "Watch closely. The message is in the blinks. Decode the Morse code

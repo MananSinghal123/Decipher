@@ -8,7 +8,7 @@ const LeaderboardPage = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/teams"); // Adjust the URL as needed
+        const response = await axios.get(`${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams`); // Adjust the URL as needed
         setTeams(response.data);
       } catch (error) {
         console.error("Error fetching teams:", error);

@@ -23,7 +23,7 @@ const OptionalQuestion = () => {
       try {
         // Make the API request to submit the task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 11, // Assuming the task number is 10
             team: localStorage.getItem("teamName"), // Get the team name from local storage

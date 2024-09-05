@@ -26,7 +26,7 @@ const GoogleLensPage = () => {
       try {
         // Make the API request to submit the final task
         const response = await axios.post(
-          "http://localhost:5000/api/teams/task",
+          `${import.meta.env.VITE_CORRECT_BACKENDURL}/api/teams/task`,
           {
             taskNumber: 6, // Assuming the task number is 10
             team: localStorage.getItem("teamName"), // Get the team name from local storage
@@ -65,6 +65,7 @@ const GoogleLensPage = () => {
         </header>
 
         <section className="googlelens-intro">
+        <h3>Puzzle #6</h3>
           <p>
             The final piece of the puzzle lies hidden in an image. Use Google
             Lens to uncover the hidden message. This step symbolizes the need
@@ -80,20 +81,6 @@ const GoogleLensPage = () => {
             alt="Hidden Clue"
             className="googlelens-puzzle-image"
           />
-        </section>
-
-        <section className="googlelens-puzzle">
-          <div className="input-section">
-            <label htmlFor="lensInput">Enter the name:</label>
-            <input
-              type="text"
-              id="lensInput"
-              name="lensInput"
-              placeholder="Enter the hidden message"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
-          </div>
         </section>
 
         <section className="googlelens-puzzle">
