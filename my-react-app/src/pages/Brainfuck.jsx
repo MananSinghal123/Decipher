@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CaesarCipherPage.css";
 import Footer from "./Footer";
-import LnmiitMap from '../../public/lnmiitMap.png';
+import LnmiitMap from '../../public/lnmiitmap.png';
 
 const Brainfuck = () => {
   const [userInput, setUserInput] = useState("");
